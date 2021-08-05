@@ -93,18 +93,18 @@ function searchByEyeColor(people){
 //TODO: add other trait filter functions here.
 
 function searchById(people) { 
-  let enterId = prompt("Please enter person's ID"); // removed autoValid function, removed promptFor
-
+  let enterId = promptFor("Please enter person's ID", autoValid); // removed autoValid function, removed promptFor
+  let parsedId = parseInt(enterId);
   let foundPersonId = people.filter(function(potentialMatch) {
-    if(potentialMatch.id === enterId) {
-      return true;
+    if(potentialMatch.id === parsedId) {
+      return true;   // return true;
             }
     else {
-      return false;
+      return false;  // return false;
 
     }
   })
-  return foundPersonId;
+    // return foundPersonId.
 }
 
 
