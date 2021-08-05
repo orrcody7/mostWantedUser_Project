@@ -10,18 +10,15 @@
 function app(people){
   let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let searchResults;
+  let userSearchChoice;
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
       break;
     case 'no':
       // TODO: search by traits
-      let newSearchCrit = prompt("what criteria do you want to search for?");
-      
-      for (let i = 0; i < data.length; i++){
-        if(data[i] === newSearchCrit) // will [i] work or does it need to be a specific key in the array ".id"
-           console.log(data.firstname + " " + data.lastname + ", " + data[i]);
-      }
+      traitSearchRoutine(people); // added parameter in parenthases
+
       break;
       default:
     app(people); // restart app
@@ -95,8 +92,34 @@ function searchByEyeColor(people){
 
 //TODO: add other trait filter functions here.
 
+function searchById(people) { 
+  let enterId = prompt("Please enter person's ID"); // removed autoValid function, removed promptFor
+
+  let foundPersonId = people.filter(function(potentialMatch) {
+    if(potentialMatch.id === enterId) {
+      return true;
+            }
+    else {
+      return false;
+
+    }
+  })
+  return foundPersonId;
+}
 
 
+function traitSearchRoutine(people){
+  let newSearchCrit = prompt("what criteria do you want to search for?");
+  //searchLoop;
+
+      switch (newSearchCrit) {
+        case "id":
+          searchById(people);
+          //searchCriteriaResults = searchBy(searchCriteria));
+                break;
+        
+      }   
+}
 //#endregion
 
 //Display functions.
@@ -166,4 +189,3 @@ function customValidation(input){
 }
 
 //#endregion
-
