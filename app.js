@@ -143,7 +143,7 @@ function yesNo(input){
     return true;
   }
   else{
-    return false;
+    return false; 
   }
 }
 
