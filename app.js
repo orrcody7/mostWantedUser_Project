@@ -16,6 +16,12 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
+      let newSearchCrit = prompt("what criteria do you want to search for?");
+      
+      for (let i = 0; i < data.length; i++){
+        if(data[i] === newSearchCrit) // will [i] work or does it need to be a specific key in the array ".id"
+           console.log(data.firstname + " " + data.lastname + ", " + data[i]);
+      }
       break;
       default:
     app(people); // restart app
@@ -160,3 +166,4 @@ function customValidation(input){
 }
 
 //#endregion
+
