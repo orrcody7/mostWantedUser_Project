@@ -104,7 +104,10 @@ function searchById(people) {
 
     }
   })
-    // return foundPersonId.
+    // return foundPersonId.  ??
+    // if true, need to return the person name and ID, or entire object and 
+    // display as an alert(best), or to the console. 
+    // how?
 }
 
 
