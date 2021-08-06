@@ -16,7 +16,7 @@ function app(people){
       break;
     case 'no':
       // TODO: search by traits
-      searchResults = traitSearchRoutine(people); // added parameter in parenthases
+      searchResults = traitSearchRoutine(people); 
       break;
       default:
     app(people); // restart app
@@ -212,7 +212,7 @@ function searchByCurrentSpouse(people) {
   let enterCurrentSpouseId = promptFor("Please enter currents spouse's ID", autoValid); // removed autoValid function, removed promptFor
   let parsedId = parseInt(enterCurrentSpouseId);
   let foundCurrentSpouseId = people.filter(function(potentialMatch) {
-    if(potentialMatch.currentSpouse === parsedId) {
+    if(potentialMatch.currentSpouse[i] === parsedId) {
       return true;   // return true;
     }
     else {
@@ -233,31 +233,40 @@ function traitSearchRoutine(people){
 
       switch (newSearchCrit) {
         case "id":
-          foundTrait = searchById(people);
+            foundTrait = searchById(people);
+            personChooser(foundTrait);
               break;
         case "gender": 
-          foundTrait = searchByGender(people);
+            foundTrait = searchByGender(people);
+            personChooser(foundTrait);
               break; 
         case "dob":
-          foundTrait = searchByDob(people);
+            foundTrait = searchByDob(people);
+            personChooser(foundTrait);    
               break;
         case "height":
             foundTrait = searchByHeight(people);
+            personChooser(foundTrait);
               break; 
         case "weight":
             foundTrait = searchByWeight(people);
+            personChooser(foundTrait);
               break; 
         case "eye color":
             foundTrait = searchByEyeColor(people);
+            personChooser(foundTrait);
               break;
         case "occupation":
             foundTrait = searchByOccupation(people);
+            personChooser(foundTrait);
               break;
         case "parents":
             foundTrait = searchByParents(people);
+            personChooser(foundTrait);
                 break;
         case "current spouse":
             foundTrait = searchByCurrentSpouse(people);
+            personChooser(foundTrait);
               break;
       }
     return foundTrait;
@@ -331,3 +340,14 @@ function customValidation(input){
 }
 
 //#endregion
+
+
+//*** search thru the data array for the person entered by the user
+
+
+function personChooser(people){
+  let filteredPeople = people.map(function(person){ //declared a variable that can be used in the prompt
+    return person.firstName + " " + person.lastName;
+  }).join("\n");
+  let userChoice = prompt ("Please enter a name from the list below: \n" + filteredPeople);
+}
