@@ -81,6 +81,7 @@ function searchByName(people){
       return false;
     }
   })
+
   // TODO: find the person single person object using the name they entered.
   return foundPerson;
 }
@@ -98,12 +99,18 @@ function searchById(people) {
   let foundPersonId = people.filter(function(potentialMatch) {
     if(potentialMatch.id === parsedId) {
       return true;   // return true;
-            }
+                        }
     else {
       return false;  // return false;
 
     }
-  })
+    return foundPersonId;
+    })
+    
+     
+    let resultId = displayPerson(foundPersonId);          // foundPersonId(people);
+    console.log(resultId);
+
     // return foundPersonId.  ??
     // if true, need to return the person name and ID, or entire object and 
     // display as an alert(best), or to the console. 
