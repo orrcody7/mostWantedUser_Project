@@ -84,7 +84,22 @@ function searchByName(people){
   return foundPerson;
 }
 
-//unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
+
+function searchById(people) { 
+  let enterId = promptFor("Please enter person's ID", autoValid); // removed autoValid function, removed promptFor
+  let parsedId = parseInt(enterId);
+  let foundPersonId = people.filter(function(potentialMatch) {
+    if(potentialMatch.id === parsedId) {
+      return true;   // return true;
+    }
+    else {
+      return false;  // return false;
+
+    }
+  })
+  return foundPersonId;
+}
+
 function searchByEyeColor(people){
   let enterColor = promptFor("Please enter person's Eye Color", autoValid); // removed autoValid function, removed promptFor
   //let parsedId = parseInt(enterColor);
@@ -100,28 +115,36 @@ function searchByEyeColor(people){
   return foundPersonEyeColor;
 }
 
-//TODO: add other trait filter functions here.
 
-function searchById(people) { 
-  let enterId = promptFor("Please enter person's ID", autoValid); // removed autoValid function, removed promptFor
-  let parsedId = parseInt(enterId);
-  let foundPersonId = people.filter(function(potentialMatch) {
-    if(potentialMatch.id === parsedId) {
-      return true;   // return true;
+function searchByGender(people) {
+  let enterGender = promptFor("Please enter person's gender", autoValid);  
+  let foundPersonGender = people.filter(function(potentialMatch) {
+    if(potentialMatch.gender === enterGender) {
+      return true;
     }
     else {
-      return false;  // return false;
-
+      return false;
     }
   })
-  return foundPersonId;
-
-// return foundPersonId.  ??
-// if true, need to return the person name and ID, or entire object and 
-// display as an alert(best), or to the console. 
-// how?
+return foundPersonGender; 
 }
 
+function searchByDob(people) {
+  let enterDob = promptFor("Please enter person's dob", autoValid);  
+  let foundPersonDob = people.filter(function(potentialMatch) {
+    if(potentialMatch.dob === enterDob) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  })
+return foundPersonDob; 
+}
+
+
+
+//TODO: add other trait filter functions here.
 
 function traitSearchRoutine(people){
   let newSearchCrit = prompt("what criteria do you want to search for?");
@@ -135,6 +158,14 @@ function traitSearchRoutine(people){
         case "eye color":
           foundTrait = searchByEyeColor(people);
               break;
+        case "gender": 
+          foundTrait = searchByGender(people);
+              break; 
+        case "dob":
+          foundTrait = searchByDob(people);
+              break;
+        case 
+            
       }
     return foundTrait;
 }
