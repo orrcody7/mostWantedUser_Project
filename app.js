@@ -10,15 +10,13 @@
 function app(people){
   let searchType = promptFor("Do you know the name of the person you are looking for? Enter 'yes' or 'no'", yesNo).toLowerCase();
   let searchResults;
-  let userSearchChoice;
   switch(searchType){
     case 'yes':
       searchResults = searchByName(people);
       break;
     case 'no':
       // TODO: search by traits
-      traitSearchRoutine(people); // added parameter in parenthases
-
+      searchResults = traitSearchRoutine(people); // added parameter in parenthases
       break;
       default:
     app(people); // restart app
@@ -99,36 +97,33 @@ function searchById(people) {
   let foundPersonId = people.filter(function(potentialMatch) {
     if(potentialMatch.id === parsedId) {
       return true;   // return true;
-                        }
+    }
     else {
       return false;  // return false;
 
     }
-    return foundPersonId;
-    })
-    
-     
-    let resultId = displayPerson(foundPersonId);          // foundPersonId(people);
-    console.log(resultId);
+  })
+  return foundPersonId;
 
-    // return foundPersonId.  ??
-    // if true, need to return the person name and ID, or entire object and 
-    // display as an alert(best), or to the console. 
-    // how?
+// return foundPersonId.  ??
+// if true, need to return the person name and ID, or entire object and 
+// display as an alert(best), or to the console. 
+// how?
 }
 
 
 function traitSearchRoutine(people){
   let newSearchCrit = prompt("what criteria do you want to search for?");
   //searchLoop;
+  let foundId;
 
       switch (newSearchCrit) {
         case "id":
-          searchById(people);
-          //searchCriteriaResults = searchBy(searchCriteria));
+          foundId = searchById(people);
                 break;
         
-      }   
+      }
+      return foundId;
 }
 //#endregion
 
