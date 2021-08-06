@@ -115,15 +115,17 @@ function searchById(people) {
 function traitSearchRoutine(people){
   let newSearchCrit = prompt("what criteria do you want to search for?");
   //searchLoop;
-  let foundId;
+  let foundTrait;
 
       switch (newSearchCrit) {
         case "id":
-          foundId = searchById(people);
-                break;
-        
+          foundTrait = searchById(people);
+              break;
+        case "eye color":
+          foundTrait = searchByEyeColor(people);
+              break;
       }
-      return foundId;
+    return foundId;
 }
 //#endregion
 
