@@ -86,7 +86,18 @@ function searchByName(people){
 
 //unfinished function to search through an array of people to find matching eye colors. Use searchByName as reference.
 function searchByEyeColor(people){
+  let enterColor = promptFor("Please enter person's Eye Color", autoValid); // removed autoValid function, removed promptFor
+  //let parsedId = parseInt(enterColor);
+  let foundPersonEyeColor = people.filter(function(potentialMatch) {
+    if(potentialMatch.eyeColor === enterColor) {
+      return true;   // return true;
+    }
+    else {
+      return false;  // return false;
 
+    }
+  })
+  return foundPersonEyeColor;
 }
 
 //TODO: add other trait filter functions here.
@@ -125,7 +136,7 @@ function traitSearchRoutine(people){
           foundTrait = searchByEyeColor(people);
               break;
       }
-    return foundId;
+    return foundTrait;
 }
 //#endregion
 
