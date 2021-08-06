@@ -85,6 +85,8 @@ function searchByName(people){
 }
 
 
+// trait functions below.
+
 function searchById(people) { 
   let enterId = promptFor("Please enter person's ID", autoValid); // removed autoValid function, removed promptFor
   let parsedId = parseInt(enterId);
@@ -99,6 +101,67 @@ function searchById(people) {
   })
   return foundPersonId;
 }
+
+
+function searchByGender(people) {
+  let enterGender = promptFor("Please enter person's gender", autoValid);  
+  let foundPersonGender = people.filter(function(potentialMatch) {
+    if(potentialMatch.gender === enterGender) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  })
+return foundPersonGender; 
+}
+
+
+function searchByDob(people) {
+  let enterDob = promptFor("Please enter person's dob", autoValid);  
+  let foundPersonDob = people.filter(function(potentialMatch) {
+    if(potentialMatch.dob === enterDob) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  })
+return foundPersonDob; 
+}
+
+
+function searchByHeight(people) { 
+  let enterHeight = promptFor("Please enter person's height", autoValid); // removed autoValid function, removed promptFor
+  let parsedHeight = parseInt(enterHeight);
+  let foundPersonHeight = people.filter(function(potentialMatch) {
+    if(potentialMatch.height === parsedHeight) {
+      return true;   // return true;
+    }
+    else {
+      return false;  // return false;
+
+    }
+  })
+  return foundPersonHeight;
+}
+
+
+function searchByWeight(people) { 
+  let enterWeight = promptFor("Please enter person's height", autoValid); // removed autoValid function, removed promptFor
+  let parsedWeight = parseInt(enterWeight);
+  let foundPersonWeight = people.filter(function(potentialMatch) {
+    if(potentialMatch.Weight === parsedWeight) {
+      return true;   // return true;
+    }
+    else {
+      return false;  // return false;
+
+    }
+  })
+  return foundPersonWeight;
+}
+
 
 function searchByEyeColor(people){
   let enterColor = promptFor("Please enter person's Eye Color", autoValid); // removed autoValid function, removed promptFor
@@ -116,32 +179,49 @@ function searchByEyeColor(people){
 }
 
 
-function searchByGender(people) {
-  let enterGender = promptFor("Please enter person's gender", autoValid);  
-  let foundPersonGender = people.filter(function(potentialMatch) {
-    if(potentialMatch.gender === enterGender) {
+function searchByOccupation(people) {
+  let enterOccupation = promptFor("Please enter person's occupation", autoValid);  
+  let foundPersonOccupation = people.filter(function(potentialMatch) {
+    if(potentialMatch.occupation === enterOccupation) {
       return true;
     }
     else {
       return false;
     }
   })
-return foundPersonGender; 
+return foundPersonOccupation; 
 }
 
-function searchByDob(people) {
-  let enterDob = promptFor("Please enter person's dob", autoValid);  
-  let foundPersonDob = people.filter(function(potentialMatch) {
-    if(potentialMatch.dob === enterDob) {
-      return true;
+
+function searchByParents(people) { 
+  let enterParentsId = promptFor("Please enter parent's ID", autoValid); // removed autoValid function, removed promptFor
+  let parsedId = parseInt(enterParentsId);
+  let foundParentsId = people.filter(function(potentialMatch) {
+    if(potentialMatch.parents === parsedId) {
+      return true;   // return true;
     }
     else {
-      return false;
+      return false;  // return false;
+
     }
   })
-return foundPersonDob; 
+  return foundParentsId;
 }
 
+function searchByCurrentSpouse(people) { 
+  let enterCurrentSpouseId = promptFor("Please enter currents spouse's ID", autoValid); // removed autoValid function, removed promptFor
+  let parsedId = parseInt(enterCurrentSpouseId);
+  let foundCurrentSpouseId = people.filter(function(potentialMatch) {
+    if(potentialMatch.currentSpouse === parsedId) {
+      return true;   // return true;
+    }
+    else {
+      return false;  // return false;
+
+    }
+  })
+  return foundCurrentSpouseId;
+}
 
 
 //TODO: add other trait filter functions here.
@@ -155,17 +235,30 @@ function traitSearchRoutine(people){
         case "id":
           foundTrait = searchById(people);
               break;
-        case "eye color":
-          foundTrait = searchByEyeColor(people);
-              break;
         case "gender": 
           foundTrait = searchByGender(people);
               break; 
         case "dob":
           foundTrait = searchByDob(people);
               break;
-        case 
-            
+        case "height":
+            foundTrait = searchByHeight(people);
+              break; 
+        case "weight":
+            foundTrait = searchByWeight(people);
+              break; 
+        case "eye color":
+            foundTrait = searchByEyeColor(people);
+              break;
+        case "occupation":
+            foundTrait = searchByOccupation(people);
+              break;
+        case "parents":
+            foundTrait = searchByParents(people);
+                break;
+        case "current spouse":
+            foundTrait = searchByCurrentSpouse(people);
+              break;
       }
     return foundTrait;
 }
