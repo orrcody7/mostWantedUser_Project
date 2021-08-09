@@ -285,16 +285,7 @@ function displayPeople(people){
   }).join("\n"));
 }
 
-function displayPerson(person){
-  // print all of the information about a person:
-  // height, weight, age, name, occupation, eye color.
-  let personInfo = "First Name: " + person.firstName + "\n";
-  personInfo += "Last Name: " + person.lastName + "\n";
-  // TODO: finish getting the rest of the information to display.
-  alert(personInfo);
-}
 
-//#endregion
 
 
 
@@ -345,9 +336,41 @@ function customValidation(input){
 //*** search thru the data array for the person entered by the user
 
 
+// function personChooser(people){
+//   let filteredPeople = people.map(function(person){ //declared a variable that can be used in the prompt
+//     return person.firstName + " " + person.lastName;
+//   }).join("\n");
+//   let userChoice = prompt ("Please enter a name from the list below: \n" + filteredPeople);
+// }
+
 function personChooser(people){
   let filteredPeople = people.map(function(person){ //declared a variable that can be used in the prompt
     return person.firstName + " " + person.lastName;
   }).join("\n");
   let userChoice = prompt ("Please enter a name from the list below: \n" + filteredPeople);
+    alert(displayPerson(userChoice));
 }
+
+function displayPerson(person){   // displays info of userChoice from above personChooser function.  (logs "undefined", see alert(personInfo) note below))
+  // print all of the information about a person:
+  // height, weight, age, name, occupation, eye color.
+  let personInfo = "First Name: " + person.firstName + "\n";
+  personInfo += "Last Name: " + person.lastName + "\n";
+  personInfo += "id: " + person.id + "\n";
+  personInfo += "gender: " + person.gender + "\n";
+  personInfo += "dob: " + person.dob + "\n";
+  personInfo += "height: " + person.height + "\n";
+  personInfo += "weight: " + person.weight + "\n";
+  personInfo += "eye color: " + person.eyeColor + "\n";
+  personInfo += "occupation: " + person.occupation + "\n";
+  personInfo += "parents: " + person.parents + "\n";
+  personInfo += "current spouse: " + person.currentSpouse + "\n";
+ 
+  alert(personInfo);        //  is personInfo actually pulling from the data.js file???
+}
+
+// function displayPeople(people){    <---- instructor code.  also displays "undefined"??
+//   alert(people.map(function(person){
+//     return person.firstName + " " + person.lastName;
+//   }).join("\n"));
+// }
